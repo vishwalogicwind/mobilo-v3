@@ -45,3 +45,5 @@ export const REGEX = {
   OPTIONALNEGATIVEAMOUNT: /^[-]?\d+$|^[-]?\d+\.\d*$/,
   NUMBER: /^\d+$/
 };
+export const PAGE_OPTIONS = [10, 15, 20, 50, 100];
+export const PAGINATION_DEFAULT_PAGE_SIZE = 10;

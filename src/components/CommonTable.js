@@ -1,45 +1,41 @@
 import { Table } from 'antd';
 import React, { useEffect, useState } from 'react';
+import {
+  PAGE_OPTIONS,
+  PAGINATION_DEFAULT_PAGE_SIZE
+} from '../common/constants';
 
-const TableComponent = (props) => {
-  const {
-    columns,
-    data = [],
-    onChange,
-    loadingData = false,
-    tableClassName = '',
-    paginationConfig, // required for showing pagination
-    ...rest
-  } = props;
-
+function CommonTable({
+  columns,
+  data,
+  total,
+  onChange,
+  tableRowIsClickable = true,
+  paginationConfig,
+  ...rest
+}) {
   const [paginationProps, setPaginationProps] = useState({
-    pageSizeOptions: [10, 15, 20, 50, 100],
-    defaultPageSize: 10,
+    pageSizeOptions: PAGE_OPTIONS,
+    defaultPageSize: PAGINATION_DEFAULT_PAGE_SIZE,
     responsive: true,
     showSizeChanger: true,
-    position: ['bottomCenter']
+    position: ['bottomRight']
   });
-
   useEffect(() => {
     setPaginationProps({ ...paginationProps, ...paginationConfig });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paginationConfig]);
-
   return (
-    <Table
-      columns={columns}
-      bordered={false} // by default false if want then pass true from props
-      dataSource={data}
-      className={tableClassName}
-      onChange={onChange} // for getting pagination,sorting and filter data
-      pagination={paginationConfig ? paginationProps : false} // for server side or client side pagination
-      loading={{
-        spinning: loadingData, // keep it true to set loader
-        size: 'large' // currently kept large loader
-      }}
-      {...rest}
-    />
+    <div className={`${tableRowIsClickable ? 'pointer' : ''}`}>
+      <Table
+        columns={columns}
+        dataSource={data}
+        onChange={onChange}
+        pagination={paginationConfig ? paginationProps : false}
+        {...rest}
+      />
+    </div>
   );
-};
+}
 
-export default TableComponent;
+export default CommonTable;
