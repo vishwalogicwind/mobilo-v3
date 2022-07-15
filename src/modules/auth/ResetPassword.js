@@ -1,14 +1,13 @@
 import { UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Spin } from 'antd';
-import React, { useState } from 'react';
+import React from 'react';
 import { ROUTES } from '../../common/constants';
 import { formValidatorRules } from '../../common/utils';
 
 const { required, email } = formValidatorRules;
 
 const ResetPassword = (props) => {
-  const [loading, setLoading] = useState(false);
-  const onFinish = async (values) => {
+  const onFinish = async () => {
     // forgot password action
   };
   return (
@@ -34,12 +33,7 @@ const ResetPassword = (props) => {
             </Form.Item>
             <div className="d-flex">
               <Form.Item>
-                <Button
-                  type="primary"
-                  loading={loading}
-                  className="mr-2"
-                  htmlType="submit"
-                >
+                <Button type="primary" className="mr-2" htmlType="submit">
                   Reset Password
                 </Button>
               </Form.Item>

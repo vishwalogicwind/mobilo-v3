@@ -1,23 +1,15 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Spin } from 'antd';
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { AppContext } from '../../AppContext';
 import logo from '../../assets/logo.png';
 import { ROUTES } from '../../common/constants';
 import { formValidatorRules } from '../../common/utils';
 
 const { required, email } = formValidatorRules;
 
-const Login = (props) => {
-  const { initializeAuth } = useContext(AppContext);
-  const [loginLoading, setLoginLoading] = useState(false);
-  function successCallback(accessToken, userData) {
-    initializeAuth(accessToken, userData);
-    props.history.replace('/');
-  }
-
-  const onFinish = async (values) => {
+const Login = () => {
+  const onFinish = async () => {
     try {
       // login action
     } catch (error) {
@@ -28,7 +20,7 @@ const Login = (props) => {
 
   return (
     <div className="gx-login-container">
-      <Spin spinning={loginLoading} wrapperClassName="gx-login-content">
+      <Spin wrapperClassName="gx-login-content">
         <div className="gx-login-header gx-text-center mb-0">
           <img src={logo} alt="Boilerplate" className="mb-4 fill-width" />
         </div>

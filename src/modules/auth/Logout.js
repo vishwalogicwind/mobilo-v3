@@ -5,17 +5,17 @@ import api from '../../common/api';
 import { ROUTES } from '../../common/constants';
 
 const Logout = () => {
-  const { dispatch, getToken } = useContext(AppContext);
+  const { getToken } = useContext(AppContext);
   const history = useHistory();
 
   const idToken = getToken();
   if (idToken) {
     api
       .post('v3/test/auth/logout', { idToken })
-      .then((res) => {
+      .then(() => {
         history.push(ROUTES.LOGIN);
       })
-      .catch((error) => {});
+      .catch(() => {});
   }
   return null;
 };

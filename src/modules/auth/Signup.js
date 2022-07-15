@@ -1,29 +1,20 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Spin } from 'antd';
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { AppContext } from '../../AppContext';
 import logo from '../../assets/logo.png';
 import { ROUTES } from '../../common/constants';
 import { formValidatorRules } from '../../common/utils';
 
 const { required, email } = formValidatorRules;
 
-const Login = (props) => {
-  const { initializeAuth } = useContext(AppContext);
-  const [loading, setLoading] = useState(false);
-
-  function successCallback(accessToken) {
-    initializeAuth(accessToken);
-    props.history.replace('/');
-  }
-
-  const onFinish = async (values) => {
+const Login = () => {
+  const onFinish = async () => {
     // signup action
   };
   return (
     <div className="gx-login-container">
-      <Spin spinning={loading} wrapperClassName="gx-login-content">
+      <Spin wrapperClassName="gx-login-content">
         <div className="gx-login-header gx-text-center mb-0">
           <img src={logo} alt="logo" style={{ width: '330px' }} />
         </div>
