@@ -1,4 +1,3 @@
-import { DownOutlined } from '@ant-design/icons';
 import { Avatar, Popover } from 'antd';
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -42,7 +41,6 @@ const UserProfile = () => {
 
         <span className="gx-avatar-name d-flex flex-row align-center">
           {`${firstName} ${lastName}`}
-          <DownOutlined className=" gx-fs-xxs ml-2" />
         </span>
       </Popover>
     </div>

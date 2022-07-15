@@ -3,6 +3,7 @@ import { Layout, Menu } from 'antd';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { MODULES, ROUTES } from '../../../common/constants';
+import UserProfile from '../header/UserProfile';
 
 const { Sider } = Layout;
 
@@ -26,6 +27,9 @@ function Sidebar({ location: { pathname }, history }) {
             <span>{MODULES.ORGANIZATION}</span>
           </Menu.Item>
         </Menu>
+        <div className="logout-box">
+          <UserProfile />
+        </div>
       </div>
     </Sider>
   );

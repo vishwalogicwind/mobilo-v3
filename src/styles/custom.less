@@ -17,6 +17,11 @@
 }
 
 .gx-sidebar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: inherit;
   & > .ant-menu {
     & > .ant-menu-item {
       margin: 12px 0;
@@ -29,6 +34,10 @@
         font-size: @font-size-lg;
       }
     }
+  }
+  & > .logout-box {
+    width: 100%;
+    padding: 16px;
   }
 }
 
